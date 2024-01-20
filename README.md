@@ -1,6 +1,41 @@
-# vue3-ecommerce
+# Vue 3 Ecommerce
 
-This template should help get you started developing with Vue 3 in Vite.
+## Entities
+
+### Product
+
+- id
+- name
+- description
+- price
+- image
+
+### Category
+
+- id
+- name
+- description
+
+### Cart
+
+- products: '[{productId: 1, quantity: 3}, {productId: 7, quantity: 5}]'
+
+## Components (Representacion Visual)
+
+### ProductCard
+
+## Pages
+
+- All products
+- All categories
+- Cart
+
+## Framework
+
+- Vuetify 3
+
+
+
 
 ## Recommended IDE Setup
 
