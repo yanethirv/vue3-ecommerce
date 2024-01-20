@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 // Componente CONTADOR
-import Contador from './Contador.vue'
+import Contador from './examples/ContadorCompositionAPI.vue'
 
 const app = createApp(Contador)
 
