@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
-// Componente CONTADOR
-import ProductList from './examples/ProductList.vue'
+// Componente App
+import App from './App.vue'
+
+// Vue Router
+import router from './router'
 
 // Vuetify
 import 'vuetify/styles'
@@ -16,7 +19,8 @@ const vuetify = createVuetify({
     }
 })
 
-const app = createApp(ProductList)
+const app = createApp(App)
 
 app.use(vuetify) // Instancia de Vuetify
+app.use(router) // Instancia de Vue-router
 app.mount('#app')
