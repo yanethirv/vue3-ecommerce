@@ -11,25 +11,26 @@ export default {
     data() {
         return {
             products: <Array<Product>> [
-                { name: 'Producto A', price: 10 },
-                { name: 'Producto B', price: 85 },
-                { name: 'Producto C', price: 210 },
+                { id: 1, name: 'Producto A', price: 10 },
+                { id: 2, name: 'Producto B', price: 85 },
+                { id: 3, name: 'Producto C', price: 210 },
             ]
         };
     },
     // Metodos
-    methods: {}
+    methods: {
+        onProductAdd(productId: number) {
+            console.log("Agregar producto " + productId);
+        }
+    }
     
 }
 </script>
 
 <template>
-    <ul>
-        <li v-for="product in products">{{ product.name }} ($ {{ product.price }})</li>
-    </ul>
-
     <ProductCard 
         v-for="p in products" 
         :product="p"
+        @addProduct="onProductAdd(p.id)"
     />
 </template>
