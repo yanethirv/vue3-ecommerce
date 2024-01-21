@@ -1,8 +1,7 @@
 <script lang="ts">
-import type { Product } from './Types';
+import type { Product, CartDetail } from './Types';
 import ProductCard from './ProductCard.vue';
 import Cart from './Cart.vue';
-import { CartDetail } from './Types';
 
 export default {
     // Registro local de un componente
@@ -25,10 +24,20 @@ export default {
     methods: {
         onProductAdd(productId: number) {
             //console.log("Agregar producto " + productId);
-            this.details.push({
-                productId,
-                quantity: 1
-            });
+            const detailFound = this.details.find(d => d.productId === productId);
+
+            if (detailFound) {
+                detailFound.quantity++;
+                //console.log(detailFound);
+            } else {
+                // Solo hace PUSH ante un producto distinto
+                //console.log(detailFound);
+                this.details.push({
+                    productId,
+                    quantity: 1
+                });
+            }
+            
         }
     }
     
