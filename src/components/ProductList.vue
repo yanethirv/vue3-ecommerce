@@ -1,7 +1,7 @@
 <script lang="ts">
-import type { Product, CartDetail } from './Types';
 import ProductCard from './ProductCard.vue';
 import Cart from './Cart.vue';
+import type { Product, CartDetail } from '../model/Types';
 
 export default {
     // Registro local de un componente
@@ -9,6 +9,7 @@ export default {
         ProductCard,
         Cart
     },
+    props: ['details'],
     // Definicion de variables de Estado
     data() {
         return {
@@ -17,7 +18,6 @@ export default {
                 { id: 2, name: 'Producto B', price: 85 },
                 { id: 3, name: 'Producto C', price: 210 },
             ],
-            details: <Array<CartDetail>>[]
         };
     },
     // Metodos
@@ -40,23 +40,19 @@ export default {
             
         }
     }
-    
 }
 </script>
 
 <template>
-    <v-container>
+    <v-row>
+        <v-col v-for="p in products" cols="4">
+            <ProductCard
+                :product="p"
+                @add-product="onProductAdd(p.id)"
+            />
+        </v-col>
+    </v-row>
 
-        <v-row>
-            <v-col v-for="p in products" cols="4">
-                <ProductCard
-                    :product="p"
-                    @add-product="onProductAdd(p.id)"
-                />
-            </v-col>
-        </v-row>
+    <Cart :details="details" />
     
-        <Cart :details="details" />
-        
-    </v-container>
 </template>

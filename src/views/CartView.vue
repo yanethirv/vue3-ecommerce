@@ -1,5 +1,14 @@
+<script lang="ts">
+import Cart from '@/components/Cart.vue';
+
+export default {
+  components: {
+    Cart
+  },
+  props: ['details']
+}
+</script>
+
 <template>
-    <div>
-      <h1>This is an cart page</h1>
-    </div>
-  </template>
+    <Cart :details="details" />
+</template>

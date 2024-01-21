@@ -1,7 +1,6 @@
 <script lang="ts">
-
 import type { PropType } from 'vue';
-import type { Product } from './Types';
+import type { Product } from '../model/Types';
 
 export default {
     // Propiedad product - Viene del componente Padre

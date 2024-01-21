@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { CartDetail } from './Types'
+import type { CartDetail } from '../model/Types'
 
 export default {
     // Propiedades a recibir del componente Padre
