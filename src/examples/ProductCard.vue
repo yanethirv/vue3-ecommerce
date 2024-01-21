@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import type { PropType } from 'vue';
-import type { Product } from './Product';
+import type { Product } from './Types';
 
 export default {
     // Propiedad product - Viene del componente Padre
@@ -13,13 +13,13 @@ export default {
         } 
     },
     // Eventos que puede emitir
-    emits: ['addProduct'],
+    emits: ['add-product'],
 
     // Metodo
     methods: {
         onAddButtonClick() {
             // El metodo Emite el evento addProduct
-            this.$emit('addProduct');
+            this.$emit('add-product');
             //console.log('Agregando producto ' + this.product.id);
         } 
     }
@@ -31,4 +31,4 @@ export default {
     <p>Price: {{ product.price }}</p>
     <button @click="onAddButtonClick">Agregar al carrito</button>
     <hr />
-</template>
+</template>./Types
