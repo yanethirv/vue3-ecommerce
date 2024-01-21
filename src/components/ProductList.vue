@@ -9,7 +9,6 @@ export default {
         ProductCard,
         Cart
     },
-    props: ['details'],
     // Definicion de variables de Estado
     data() {
         return {
@@ -23,20 +22,6 @@ export default {
     // Metodos
     methods: {
         onProductAdd(productId: number) {
-            //console.log("Agregar producto " + productId);
-            const detailFound = this.details.find(d => d.productId === productId);
-
-            if (detailFound) {
-                detailFound.quantity++;
-                //console.log(detailFound);
-            } else {
-                // Solo hace PUSH ante un producto distinto
-                //console.log(detailFound);
-                this.details.push({
-                    productId,
-                    quantity: 1
-                });
-            }
             
         }
     }
@@ -53,6 +38,6 @@ export default {
         </v-col>
     </v-row>
 
-    <Cart :details="details" />
+    <Cart />
     
 </template>

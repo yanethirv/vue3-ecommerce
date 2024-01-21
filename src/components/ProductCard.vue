@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Product } from '../model/Types';
+import type { Product } from '@/model/Types';
+import { useCartStore } from '@/stores/cart';
 
 export default {
     // Propiedad product - Viene del componente Padre
@@ -11,15 +12,12 @@ export default {
             required: true
         } 
     },
-    // Eventos que puede emitir
-    emits: ['add-product'],
 
     // Metodo
     methods: {
         onAddButtonClick() {
-            // El metodo Emite el evento addProduct
-            this.$emit('add-product');
-            //console.log('Agregando producto ' + this.product.id);
+            const cartStore = useCartStore();
+            cartStore.addProduct(this.product.id);
         } 
     }
 }

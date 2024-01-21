@@ -1,14 +1,5 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-
-export default {
-  data() {
-    return {
-      details: [{productId: 8, quantity: 2}]
-    };
-  }
-}
-
 </script>
 
 <template>
@@ -57,7 +48,7 @@ export default {
 
     <v-main>
       <v-container>
-        <RouterView :details="details"/>
+        <RouterView />
       </v-container>
     </v-main>
   </v-app>
