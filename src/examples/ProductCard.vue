@@ -27,8 +27,14 @@ export default {
 </script>
 
 <template>
-    <p>Nombre: {{ product.name }}</p>
-    <p>Price: {{ product.price }}</p>
-    <button @click="onAddButtonClick">Agregar al carrito</button>
-    <hr />
+    <v-card 
+    :title="product.name">
+        <p>Price: {{ product.price }}</p>
+
+        <v-card-actions>
+            <v-btn @click="onAddButtonClick">
+                Agregar al carrito
+            </v-btn>
+        </v-card-actions>
+    </v-card>
 </template>./Types
