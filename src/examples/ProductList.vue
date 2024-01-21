@@ -1,4 +1,5 @@
 <script lang="ts">
+import type { Product } from './Product';
 import ProductCard from './ProductCard.vue';
 
 export default {
@@ -9,10 +10,10 @@ export default {
     // Definicion de variables
     data() {
         return {
-            products: [
-                { id: 1, name: 'Producto A', price: 10 },
-                { id: 1, name: 'Producto B', price: 85 },
-                { id: 1, name: 'Producto C', price: 210 },
+            products: <Array<Product>> [
+                { name: 'Producto A', price: 10 },
+                { name: 'Producto B', price: 85 },
+                { name: 'Producto C', price: 210 },
             ]
         };
     },

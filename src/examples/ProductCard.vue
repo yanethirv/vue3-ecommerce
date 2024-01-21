@@ -1,7 +1,16 @@
 <script lang="ts">
+
+import type { PropType } from 'vue';
+import type { Product } from './Product';
+
 export default {
     // Propiedad product - Viene del componente Padre
-    props: ['product'],
+    props: {
+        product: {
+            type: Object as PropType<Product>, // Interface PRODUCT
+            required: true
+        } 
+    }
 }
 </script>
 
