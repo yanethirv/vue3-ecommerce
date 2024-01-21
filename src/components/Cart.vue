@@ -34,4 +34,4 @@ export default {
 
         </v-card-text>
     </v-card>
-</template>@/model/types
+</template>

@@ -43,10 +43,10 @@ export default {
         </v-card-text>
 
         <v-card-actions>
-            <v-btn color="orange" @click="onAddButtonClick">
+            <v-btn color="orange-lighten-2" @click="onAddButtonClick">
                 Agregar al carrito
             </v-btn>
         </v-card-actions>
 
     </v-card>
-</template>./Types@/model/types
+</template>

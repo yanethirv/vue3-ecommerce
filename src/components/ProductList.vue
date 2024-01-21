@@ -13,9 +13,12 @@ export default {
     data() {
         return {
             products: <Array<Product>> [
-                { id: 1, name: 'Producto A', price: 10 },
-                { id: 2, name: 'Producto B', price: 85 },
-                { id: 3, name: 'Producto C', price: 210 },
+                { id: 1, name: 'Camisa', price: 15 },
+                { id: 2, name: 'Short', price: 15 },
+                { id: 3, name: 'Legos', price: 25 },
+                { id: 4, name: 'Carpa', price: 250 },
+                { id: 5, name: 'Zapatos', price: 75 },
+                { id: 6, name: 'Sombrilla', price: 120 },
             ],
         };
     },
@@ -37,7 +40,4 @@ export default {
             />
         </v-col>
     </v-row>
-
-    <Cart />
-    
-</template>../model/types
+</template>
