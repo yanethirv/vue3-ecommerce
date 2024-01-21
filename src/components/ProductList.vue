@@ -1,7 +1,7 @@
 <script lang="ts">
 import ProductCard from './ProductCard.vue';
 import Cart from './Cart.vue';
-import type { Product, CartDetail } from '../model/Types';
+import type { Product, CartDetail } from '@/model/types';
 
 export default {
     // Registro local de un componente
@@ -40,4 +40,4 @@ export default {
 
     <Cart />
     
-</template>
+</template>../model/types

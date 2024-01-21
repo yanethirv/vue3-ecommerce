@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Product } from '@/model/Types';
+import type { Product } from '@/model/types';
 import { useCartStore } from '@/stores/cart';
 
 export default {
@@ -49,4 +49,4 @@ export default {
         </v-card-actions>
 
     </v-card>
-</template>./Types
+</template>./Types@/model/types
