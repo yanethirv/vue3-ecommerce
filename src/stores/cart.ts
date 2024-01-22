@@ -45,6 +45,10 @@ export const useCartStore = defineStore('cart', {
             
             if (detailFound) {
                 detailFound.quantity--;
+
+                if(detailFound.quantity === 0) {
+                    this.deleteProduct(productId);
+                }
             }
         },
         deleteProduct(productId: number) {
