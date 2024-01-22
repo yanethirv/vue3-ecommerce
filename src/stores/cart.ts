@@ -47,5 +47,10 @@ export const useCartStore = defineStore('cart', {
                 detailFound.quantity--;
             }
         },
+        deleteProduct(productId: number) {
+            // Devuelve el indice del producto a eliminar del arreglo
+            const index = this.details.findIndex(d => d.productId === productId);
+            this.details.splice(index, 1); // Acepta una posicion y la cantidad
+        },
     },
 })

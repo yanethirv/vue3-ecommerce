@@ -16,9 +16,12 @@ export default {
         incrementQuantity(productId: number){  
             this.cartStore.increment(productId);
         },
-        decrementQuantity(productId: number){const cartStore = useCartStore();
+        decrementQuantity(productId: number){
             this.cartStore.decrement(productId);
         },
+        deleteProduct(productId: number){
+            this.cartStore.deleteProduct(productId);
+        }
     },
     
 }
@@ -46,6 +49,10 @@ export default {
 
                         <v-btn  @click="incrementQuantity(detail.productId)">
                             +
+                        </v-btn>
+
+                        <v-btn  @click="deleteProduct(detail.productId)">
+                            Delete
                         </v-btn>
 
                     </v-list-item-title>
