@@ -1,6 +1,7 @@
 <script lang="ts">
 
 import { useCartStore } from '@/stores/cart';
+import { RouterLink } from 'vue-router'
 
 export default {
     // Propiedades a recibir del componente Padre
@@ -10,7 +11,10 @@ export default {
         },
         details() {
             return this.cartStore.details;
-        }
+        },
+        statusCart() {
+            return this.cartStore.statusCart; //Accedemos a getter
+        },
     },
     methods: {
         incrementQuantity(productId: number){  
@@ -36,7 +40,7 @@ export default {
 
         <v-card-text>
 
-            <v-list>
+            <v-list v-if="statusCart">
                 <v-list-item v-for="detail in details" :value="detail.productId">
                     <v-list-item-title>
                         Product: {{ detail.productId }}
@@ -59,6 +63,7 @@ export default {
                 </v-list-item>
             </v-list>
 
+            <p v-else>No se han agregado productos al carrito. Ver <RouterLink to="/">Productos</RouterLink></p>
         </v-card-text>
     </v-card>
 </template>
