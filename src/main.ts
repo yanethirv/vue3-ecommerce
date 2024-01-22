@@ -14,12 +14,23 @@ import router from './router'
 // Pinia - Gestion de Estados
 import { createPinia } from 'pinia'
 
+// Icons
+import '@mdi/font/css/materialdesignicons.css'
+
 const vuetify = createVuetify({
     components,
     directives,
     theme: { // Objeto Theme
         defaultTheme: 'dark'
-    }
+    },
+    /*icons: {
+        defaultSet: 'fa',
+        aliases,
+        sets: {
+            fa,
+            mdi
+        }
+    },*/
 })
 
 const app = createApp(App)

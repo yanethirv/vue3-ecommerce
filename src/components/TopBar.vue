@@ -33,7 +33,7 @@ export default {
         ></v-avatar>
 
         <RouterLink to="/" custom v-slot="{navigate}">
-            <v-btn variant="text" @click="navigate">
+            <v-btn prepend-icon="mdi-home-variant" :active="$route.name === 'home'" variant="text" @click="navigate">
                 Home
             </v-btn>
         </RouterLink>
@@ -44,14 +44,14 @@ export default {
                 :model-value="showBadge"
                 color="orange-lighten-2"
             >
-                <v-btn variant="text" @click="navigate">
+                <v-btn prepend-icon="mdi-cart" :active="$route.name === 'cart'" variant="text" @click="navigate">
                     Cart
                 </v-btn>
             </v-badge>
         </RouterLink>
 
         <RouterLink to="/about" custom v-slot="{navigate}">
-            <v-btn variant="text" @click="navigate">
+            <v-btn prepend-icon="mdi-information" :active="$route.name === 'about'" variant="text" @click="navigate">
                 About
             </v-btn>
         </RouterLink>

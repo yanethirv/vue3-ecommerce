@@ -45,19 +45,24 @@ export default {
                     <v-list-item-title>
                         Product: {{ detail.productId }}
                         
-                        <v-btn @click="decrementQuantity(detail.productId)">
-                            -
-                        </v-btn>
+                        <v-btn 
+                            class="ml-2"
+                            icon="mdi-minus" 
+                            size="x-small" 
+                            @click="decrementQuantity(detail.productId)" />
 
-                        (Qty: {{ detail.quantity }})
+                        Cantidad: {{ detail.quantity }}
 
-                        <v-btn  @click="incrementQuantity(detail.productId)">
-                            +
-                        </v-btn>
+                        <v-btn  
+                            icon="mdi-plus" 
+                            size="x-small"
+                            @click="incrementQuantity(detail.productId)" />
 
-                        <v-btn  @click="deleteProduct(detail.productId)">
-                            Delete
-                        </v-btn>
+                        <v-btn  
+                            class="ml-2"
+                            icon="mdi-delete" 
+                            size="x-small"
+                            @click="deleteProduct(detail.productId)" />
 
                     </v-list-item-title>
                 </v-list-item>
