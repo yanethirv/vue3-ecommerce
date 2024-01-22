@@ -4,9 +4,11 @@ import { useCartStore } from '@/stores/cart';
 
 export default {
     computed: {
+        cartStore() {
+            return useCartStore();
+        },
         itemsCount() {
-            const cartStore = useCartStore();
-            return cartStore.cartItemsCount; //Accedemos a getter
+            return this.cartStore.cartItemsCount; //Accedemos a getter
         },
         showBadge() {
             return this.itemsCount > 0;

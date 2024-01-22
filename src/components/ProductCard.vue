@@ -1,10 +1,11 @@
 <script lang="ts">
+
 import type { PropType } from 'vue';
 import type { Product } from '@/model/types';
 import { useCartStore } from '@/stores/cart';
 
 export default {
-    // Propiedad product - Viene del componente Padre
+    // Propiedad product - Viene del componente Padre ProductList
     // Propiedades que puede recibir
     props: {
         product: {
@@ -12,12 +13,15 @@ export default {
             required: true
         } 
     },
-
+    computed: {
+        cartStore() {
+            return useCartStore();
+        },
+    },
     // Metodo
     methods: {
         onAddButtonClick() {
-            const cartStore = useCartStore();
-            cartStore.addProduct(this.product.id);
+            this.cartStore.addProduct(this.product.id);
         } 
     }
 }

@@ -32,6 +32,20 @@ export const useCartStore = defineStore('cart', {
                     quantity: 1
                 });
             }
-        }
+        },
+        increment(productId: number) {
+            const detailFound = this.details.find(d => d.productId === productId);
+            
+            if (detailFound) {
+                detailFound.quantity++;
+            }
+        },
+        decrement(productId: number) {
+            const detailFound = this.details.find(d => d.productId === productId);
+            
+            if (detailFound) {
+                detailFound.quantity--;
+            }
+        },
     },
 })

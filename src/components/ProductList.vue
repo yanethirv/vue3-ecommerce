@@ -1,13 +1,12 @@
 <script lang="ts">
+
 import ProductCard from './ProductCard.vue';
-import Cart from './Cart.vue';
-import type { Product, CartDetail } from '@/model/types';
+import type { Product } from '@/model/types';
 
 export default {
     // Registro local de un componente
     components: { 
-        ProductCard,
-        Cart
+        ProductCard
     },
     // Definicion de variables de Estado
     data() {
@@ -24,9 +23,7 @@ export default {
     },
     // Metodos
     methods: {
-        onProductAdd(productId: number) {
-            
-        }
+        
     }
 }
 </script>
@@ -34,10 +31,7 @@ export default {
 <template>
     <v-row>
         <v-col v-for="p in products" cols="4">
-            <ProductCard
-                :product="p"
-                @add-product="onProductAdd(p.id)"
-            />
+            <ProductCard :product="p" />
         </v-col>
     </v-row>
 </template>

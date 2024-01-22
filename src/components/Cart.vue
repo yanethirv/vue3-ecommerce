@@ -1,16 +1,26 @@
 <script lang="ts">
-import type { PropType } from 'vue';
-import type { CartDetail } from '@/model/types';
+
 import { useCartStore } from '@/stores/cart';
 
 export default {
     // Propiedades a recibir del componente Padre
     computed: {
+        cartStore() {
+            return useCartStore();
+        },
         details() {
-            const cartStore = useCartStore();
-            return cartStore.details;
+            return this.cartStore.details;
         }
-    }
+    },
+    methods: {
+        incrementQuantity(productId: number){  
+            this.cartStore.increment(productId);
+        },
+        decrementQuantity(productId: number){const cartStore = useCartStore();
+            this.cartStore.decrement(productId);
+        },
+    },
+    
 }
 </script>
 
@@ -27,7 +37,17 @@ export default {
                 <v-list-item v-for="detail in details" :value="detail.productId">
                     <v-list-item-title>
                         Product: {{ detail.productId }}
+                        
+                        <v-btn @click="decrementQuantity(detail.productId)">
+                            -
+                        </v-btn>
+
                         (Qty: {{ detail.quantity }})
+
+                        <v-btn  @click="incrementQuantity(detail.productId)">
+                            +
+                        </v-btn>
+
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
