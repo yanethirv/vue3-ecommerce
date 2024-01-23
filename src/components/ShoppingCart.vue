@@ -1,7 +1,6 @@
 <script lang="ts">
 
 import { useCartStore } from '@/stores/cart';
-import { RouterLink } from 'vue-router'
 
 export default {
     // Propiedades a recibir del componente Padre
@@ -41,7 +40,7 @@ export default {
         <v-card-text>
 
             <v-list v-if="statusCart">
-                <v-list-item v-for="detail in details" :value="detail.productId">
+                <v-list-item v-for="detail in details" :value="detail.productId" :key="detail.productId">
                     <v-list-item-title>
                         Product: {{ detail.productId }}
                         

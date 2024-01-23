@@ -1,6 +1,5 @@
 <script lang="ts">
 
-import { RouterLink } from 'vue-router'    
 import { useCartStore } from '@/stores/cart';
 
 export default {
