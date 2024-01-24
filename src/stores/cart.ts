@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { CartDetail } from '@/model/types';
+import type { CartDetail, Product } from '@/model/types';
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
@@ -8,7 +8,7 @@ export const useCartStore = defineStore('cart', {
             productId: 100,
             quantity: 2
         }]*/
-        details: <Array<CartDetail>>[]
+        details: [] as CartDetail[]
     }),
     getters: {
         cartItemsCount: (state) => {
@@ -23,28 +23,28 @@ export const useCartStore = defineStore('cart', {
         },
     },
     actions: {
-        addProduct(productId: number) {
-            const detailFound = this.details.find(d => d.productId === productId);
+        addProduct(product: Product) { // Enviamos el objeto Product completo
+            const detailFound = this.details.find(d => d.product.id === product.id);
 
             if (detailFound) {
                 detailFound.quantity++;
             } else {
                 // Solo hace PUSH ante un producto distinto
                 this.details.push({
-                    productId,
+                    product,
                     quantity: 1
                 });
             }
         },
         increment(productId: number) {
-            const detailFound = this.details.find(d => d.productId === productId);
+            const detailFound = this.details.find(d => d.product.id === productId);
             
             if (detailFound) {
                 detailFound.quantity++;
             }
         },
         decrement(productId: number) {
-            const detailFound = this.details.find(d => d.productId === productId);
+            const detailFound = this.details.find(d => d.product.id === productId);
             
             if (detailFound) {
                 detailFound.quantity--;
@@ -56,7 +56,7 @@ export const useCartStore = defineStore('cart', {
         },
         deleteProduct(productId: number) {
             // Devuelve el indice del producto a eliminar del arreglo
-            const index = this.details.findIndex(d => d.productId === productId);
+            const index = this.details.findIndex(d => d.product.id === productId);
             this.details.splice(index, 1); // Acepta una posicion y la cantidad
         },
     },

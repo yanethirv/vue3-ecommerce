@@ -17,11 +17,15 @@ export default {
         cartStore() {
             return useCartStore();
         },
+        productImageUrl() {
+            return this.product.image 
+            ?? 'https://cdn.vuetifyjs.com/images/cards/docks.jpg';
+        }
     },
     // Metodo
     methods: {
         onAddButtonClick() {
-            this.cartStore.addProduct(this.product.id);
+            this.cartStore.addProduct(this.product);
         } 
     }
 }
@@ -33,7 +37,7 @@ export default {
         <v-img
             class="align-end text-white"
             height="200"
-            src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+            :src="productImageUrl"
             cover
         />
 
