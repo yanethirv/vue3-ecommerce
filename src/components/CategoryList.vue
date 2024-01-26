@@ -6,9 +6,10 @@ export default {
     data() {
         return {
             categories: [
-                {id: 1, name: 'Kids'},
-                {id: 2, name: 'Adults'},
-                {id: 3, name: 'Toys'}
+                {id: 1, name: 'Home', description: 'Accesorios para el Hogar'},
+                {id: 2, name: 'Kids', description: 'Accesorios para Chicos'},
+                {id: 3, name: 'Adults', description: 'Ropa y Calzado'},
+                {id: 4, name: 'Electronics', description: 'Tv, Laptops'},
             ] as Category[]
         };
     }

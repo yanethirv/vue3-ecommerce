@@ -12,12 +12,16 @@ export default {
     data() {
         return {
             products: [
-                { id: 1, name: 'Camisa', price: 15, image: 'https://picsum.photos/400' },
-                { id: 2, name: 'Short', price: 15, image: 'https://picsum.photos/400' },
-                { id: 3, name: 'Legos', price: 25, image: 'https://picsum.photos/400' },
-                { id: 4, name: 'Carpa', price: 250, image: '/public/images/photo-1508873696983-2dfd5898f08b.webp' },
-                { id: 5, name: 'Zapatos', price: 75, image: 'https://picsum.photos/400' },
-                { id: 6, name: 'Sombrilla', price: 120, },
+                { id: 1, name: 'Silla', price: 365, image: '/public/images/products/1.png', categoryId: 1 },
+                { id: 1, name: 'Mesa de Madera', price: 265, image: '/public/images/products/2.png', categoryId: 1 },
+                { id: 1, name: 'Sombrilla de Playa', price: 45, image: '/public/images/products/3.png', categoryId: 1 },
+                { id: 1, name: 'Cojines', price: 15, image: '/public/images/products/4.png', categoryId: 1 },
+                { id: 1, name: 'Flotador Flamingo', price: 35, image: '/public/images/products/5.png', categoryId: 2 },
+                { id: 1, name: 'Tv 32" Philips', price: 350, image: '/public/images/products/6.png', categoryId: 4 },
+                { id: 1, name: 'Laptop 17" HP', price: 705, image: '/public/images/products/7.png', categoryId: 4 },
+                { id: 1, name: 'Zapatos de Piel', price: 65, image: '/public/images/products/8.png', categoryId: 3 },
+                { id: 1, name: 'Vestido de Fiesta', price: 150, image: '/public/images/products/9.png', categoryId: 3 },
+                { id: 1, name: 'Kits de Juguetes', price: 45, image: '/public/images/products/10.png', categoryId: 2 },
             ] as Product[],
         };
     },
