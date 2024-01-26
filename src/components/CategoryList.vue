@@ -1,6 +1,8 @@
 <script lang="ts">
 
 import type { Category } from '@/model/types';
+import { mapActions } from 'pinia';
+import { useProductsStore } from '@/stores/products';
 
 export default {
     data() {
@@ -14,7 +16,7 @@ export default {
         };
     },
     methods: {
-        selectCategory(categoryId: number) {
+        goToCategory(categoryId: number) {
             this.$router.push(
                 {
                     name: "category", 
@@ -30,6 +32,7 @@ export default {
                 }
             );
         },
+        ...mapActions(useProductsStore, ['orderByName', 'orderByPrice'])
     }
 }
 
@@ -48,7 +51,7 @@ export default {
                 v-for="category in categories"
                 :key="category.id"
                 link
-                @click="selectCategory(category.id)"
+                @click="goToCategory(category.id)"
             >
                 <v-list-item-title>
                     {{ category.name }}
@@ -58,12 +61,16 @@ export default {
             <v-divider class="my-2"></v-divider>
 
             <v-list-subheader>Order</v-list-subheader>
-            <v-list-item link color="grey-lighten-4">
+            <v-list-item 
+                link
+                @click="orderByName">
                 <v-list-item-title>
                     By name
                 </v-list-item-title>
             </v-list-item>
-            <v-list-item link color="grey-lighten-4">
+            <v-list-item 
+                link
+                @click="orderByPrice">
                 <v-list-item-title>
                     By price
                 </v-list-item-title>

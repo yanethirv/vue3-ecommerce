@@ -3,7 +3,9 @@ import type { Product } from "@/model/types";
 
 export const useProductsStore = defineStore('products', {
     state: () => ({
+        // Variables de Estado
         categoryId: null as number|null,
+        orderBy: '' as string,
         _products: [
             { id: 1, name: 'Silla', price: 365, image: '/public/images/products/1.png', categoryId: 1 },
             { id: 2, name: 'Mesa de Madera', price: 265, image: '/public/images/products/2.png', categoryId: 1 },
@@ -19,16 +21,44 @@ export const useProductsStore = defineStore('products', {
     }),
     getters: {
         products(state) {
-            if (!state.categoryId){
-                return state._products;
+            let products = null;
+
+            // Filter
+            if (state.categoryId){
+                // Realiza el filtrado
+                products = state._products
+                    .filter(p => p.categoryId === state.categoryId);
+            }else {
+                // Devuelve el arreglo original de productos
+                products = state._products;
             }
-            return state._products.filter(p => p.categoryId === state.categoryId);
+
+            // Order
+            if (state.orderBy === ''){
+                return products;
+            }
+
+            if (state.orderBy === 'name'){
+                return products.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            if (state.orderBy === 'price'){
+                return products.sort((a, b) => a.price - b.price);
+            }
+
         }
     },
     actions: {
         // Se encarga de actualizar el estado
         selectCategory(categoryId: number) {
             this.categoryId = categoryId
+        },
+        orderByName() {
+            this.orderBy = 'name'
+        },
+        orderByPrice() {
+            this.orderBy = 'price'
         }
     },
+    
 })
