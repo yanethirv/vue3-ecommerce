@@ -24,17 +24,25 @@ export default {
         productImageUrl() {
             return this.detail.product.image
                 ?? 'https://cdn.vuetifijs/images/cards/sunshine.jpg';
+        },
+        subTotal() {
+            return (this.detail.quantity * this.detail.product.price);
         }
     }
 }
 </script>
 <template>
-    <v-list-item>
-        <v-avatar size="40px">
-            <v-img :src="productImageUrl" />
-        </v-avatar>
-        <v-list-item-title>
+    <tr
+        v-for="item in [{name:'test', calories:128}]"
+        :key="item.name"
+    >
+        <td>
+            <v-avatar size="40px">
+                <v-img :src="productImageUrl" />
+            </v-avatar>
             {{ detail.product.name }}
+        </td>
+        <td class="text-center">
             <v-btn 
                 class="ml-2"
                 icon="mdi-minus" 
@@ -47,13 +55,19 @@ export default {
                 icon="mdi-plus" 
                 size="x-small"
                 @click="incrementQuantity(detail.product.id)" />
-
+        </td>
+        <td>
+            ${{ detail.product.price }}
+        </td>
+        <td>
+            ${{ subTotal }}
+        </td>
+        <td class="text-center">
             <v-btn  
                 class="ml-2"
                 icon="mdi-delete" 
                 size="x-small"
                 @click="deleteProduct(detail.product.id)" />
-
-        </v-list-item-title>
-    </v-list-item>
+        </td>
+    </tr>
 </template>

@@ -22,12 +22,33 @@ export default {
 
         <v-card-text>
 
-            <v-list v-if="statusCart">
-                <ShoppingCartItem 
-                    v-for="detail in details"
-                    :key="detail.product.id"
-                    :detail="detail"/>
-            </v-list>
+            <v-table v-if="statusCart">
+                <thead>
+                <tr>
+                    <th class="text-left">
+                        Nombre
+                    </th>
+                    <th class="text-center">
+                        Cantidad
+                    </th>
+                    <th class="text-left">
+                        Precio
+                    </th>
+                    <th class="text-left">
+                        Subtotal
+                    </th>
+                    <th class="text-center">
+                        Actions
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <ShoppingCartItem 
+                        v-for="detail in details"
+                        :key="detail.product.id"
+                        :detail="detail"/>
+                </tbody>
+            </v-table>
 
             <p v-else>No se han agregado productos al carrito. Ver <RouterLink to="/">Productos</RouterLink></p>
         </v-card-text>
