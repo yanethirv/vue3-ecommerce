@@ -49,7 +49,7 @@ export default {
                 size="x-small" 
                 @click="decrementQuantity(detail.product.id)" />
 
-            Cantidad: {{ detail.quantity }}
+            {{ detail.quantity }}
 
             <v-btn  
                 icon="mdi-plus" 

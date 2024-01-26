@@ -21,6 +21,15 @@ export const useCartStore = defineStore('cart', {
         statusCart: (state) => {
             return state.details.length;
         },
+        totalAmount: (state) => {
+            let total = 0;
+
+            state.details.forEach(d => {
+                total += d.product.price * d.quantity;
+            });
+
+            return total;
+        },
     },
     actions: {
         addProduct(product: Product) { // Enviamos el objeto Product completo

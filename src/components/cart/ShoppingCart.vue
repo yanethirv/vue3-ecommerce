@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import { useCartStore } from '@/stores/cart';
-import { mapActions, mapState } from 'pinia';
+import { mapState } from 'pinia';
 import ShoppingCartItem from './ShoppingCartItem.vue';
 
 export default {
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-    <v-card class="mt-4">
+    <v-card>
 
         <v-card-title>
             Productos agregados al carrito:
@@ -38,7 +38,7 @@ export default {
                         Subtotal
                     </th>
                     <th class="text-center">
-                        Actions
+                        <span class="d-sr-only">Actions</span>
                     </th>
                 </tr>
                 </thead>
