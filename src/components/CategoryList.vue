@@ -22,7 +22,14 @@ export default {
                 }
             );
 
-        } 
+        },
+        clearCategory() {
+            this.$router.push(
+                {
+                    name: "home"
+                }
+            );
+        },
     }
 }
 
@@ -31,7 +38,13 @@ export default {
 <template>
     <v-sheet rounded="lg">
         <v-list rounded="lg">
-            <v-list-item
+            <v-list-subheader>Categories</v-list-subheader>
+            <v-list-item link @click="clearCategory()" :active="$route.name === 'home'">
+                <v-list-title>
+                    Todas
+                </v-list-title>
+            </v-list-item>
+            <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
                 v-for="category in categories"
                 :key="category.id"
                 link
@@ -44,12 +57,17 @@ export default {
 
             <v-divider class="my-2"></v-divider>
 
-            <v-list-item
-                link
-                color="grey-lighten-4"
-                title="Order by price"
-            ></v-list-item>
-
+            <v-list-subheader>Order</v-list-subheader>
+            <v-list-item link color="grey-lighten-4">
+                <v-list-item-title>
+                    By name
+                </v-list-item-title>
+            </v-list-item>
+            <v-list-item link color="grey-lighten-4">
+                <v-list-item-title>
+                    By price
+                </v-list-item-title>
+            </v-list-item>
         </v-list>
     </v-sheet>
 </template>
