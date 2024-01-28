@@ -1,12 +1,12 @@
 <script lang="ts">
 
-import OrderOptions from './left/OrderOptions.vue';
-import ItemsList from './left/ItemsList.vue';
+import OrderOptions from './OrderOptions.vue';
+import CategoryOptions from './CategoryOptions.vue';
 
 export default {
     components: { 
         OrderOptions, 
-        ItemsList 
+        CategoryOptions 
     }
 }
 
@@ -16,7 +16,7 @@ export default {
     <v-sheet rounded="lg">
         <v-list rounded="lg">
 
-            <ItemsList />
+            <CategoryOptions />
 
             <v-divider class="my-2"></v-divider>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import ProductList from '@/components/ProductList.vue';
-import LeftMenu from '@/components/LeftMenu.vue';
+import LeftMenu from '@/components/left/Menu.vue';
 import { useProductsStore } from '@/stores/products';
 
 // Funcion Externa
@@ -17,12 +17,12 @@ export default {
     LeftMenu
   },
   // Navigation guard de vue router
-  beforeRouteEnter(to, from) {
+  beforeRouteEnter(to) {
     //console.log('beforeRouteEnter', to.params);
     updateCategoryFromRouteParams(to.params.categoryId);
   },
   // Navigation guard de vue router
-  beforeRouteUpdate(to, from) {
+  beforeRouteUpdate(to) {
     //console.log('beforeRouteUpdate', to.params);
     updateCategoryFromRouteParams(to.params.categoryId);
   }
