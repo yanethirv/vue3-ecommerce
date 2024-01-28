@@ -5,7 +5,7 @@ export const useProductsStore = defineStore('products', {
     state: () => ({
         // Variables de Estado
         categoryId: null as number|null,
-        orderBy: '' as string,
+        orderBy: 'price' as string,
         _products: [
             { id: 1, name: 'Silla', price: 365, image: '/public/images/products/1.png', categoryId: 1 },
             { id: 2, name: 'Mesa de Madera', price: 265, image: '/public/images/products/2.png', categoryId: 1 },
@@ -42,8 +42,16 @@ export const useProductsStore = defineStore('products', {
                 return products.sort((a, b) => a.name.localeCompare(b.name));
             }
 
+            if (state.orderBy === 'nameDesc'){
+                return products.sort((a, b) => b.name.localeCompare(a.name));
+            }
+
             if (state.orderBy === 'price'){
                 return products.sort((a, b) => a.price - b.price);
+            }
+
+            if (state.orderBy === 'priceDesc'){
+                return products.sort((a, b) => b.price - a.price);
             }
 
         }
@@ -56,9 +64,15 @@ export const useProductsStore = defineStore('products', {
         orderByName() {
             this.orderBy = 'name'
         },
+        orderByNameDesc() {
+            this.orderBy = 'nameDesc'
+        },
         orderByPrice() {
             this.orderBy = 'price'
-        }
+        },
+        orderByPriceDesc() {
+            this.orderBy = 'priceDesc'
+        },
     },
     
 })
