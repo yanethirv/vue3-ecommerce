@@ -1,17 +1,11 @@
 <script lang="ts">
 
-import type { Category } from '@/model/types';
+import { mapState } from 'pinia';
+import { useCategoriesStore } from '@/stores/categories';
 
 export default {
-    data() {
-        return {
-            categories: [
-                { id: 1, name: 'Home', description: 'Accesorios para el Hogar' },
-                { id: 2, name: 'Kids', description: 'Accesorios para Chicos' },
-                { id: 3, name: 'Adults', description: 'Ropa y Calzado' },
-                { id: 4, name: 'Electronics', description: 'Tv, Laptops' },
-            ] as Category[]
-        };
+    computed: {
+        ...mapState(useCategoriesStore, ['categories'])
     },
     methods: {
         goToCategory(categoryId: number) {
