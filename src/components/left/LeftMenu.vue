@@ -11,10 +11,14 @@ export default {
     },
     mounted() {
       //console.log('mounted')
-        setInterval(() => {
+        /*setInterval(() => {
             const categoriesStore = useCategoriesStore();
             categoriesStore.fetchCategories();
-        }, 2000)
+        }, 2000)*/
+
+        const categoriesStore = useCategoriesStore();
+        categoriesStore.fetchCategories();
+        
     },
 }
 

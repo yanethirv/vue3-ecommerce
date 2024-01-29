@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { CartDetail, Product } from '@/model/types';
+import{ useLocalStorage } from '@vueuse/core';
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
@@ -8,7 +9,7 @@ export const useCartStore = defineStore('cart', {
             productId: 100,
             quantity: 2
         }]*/
-        details: [] as CartDetail[]
+        details: useLocalStorage('cartDetails', []) as CartDetail[]
     }),
     getters: {
         cartItemsCount: (state) => {

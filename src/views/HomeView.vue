@@ -29,11 +29,13 @@ export default {
   mounted() {
       //console.log('mounted');
 
-      setInterval(() => {
+      /*setInterval(() => {
         const productsStore = useProductsStore();
         productsStore.fetchProducts();
-      }, 4000)
-      
+      }, 4000)*/
+
+      const productsStore = useProductsStore();
+      productsStore.fetchProducts();
   },
 }
 </script>
