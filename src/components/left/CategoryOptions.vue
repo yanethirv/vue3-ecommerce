@@ -19,16 +19,16 @@ export default {
                 name: "home"
             });
         },
-    },
+    }
 }
 </script>
 <template>
     <v-list-subheader>Categories</v-list-subheader>
 
     <v-list-item link @click="clearCategory()" :active="$route.name === 'home'">
-        <v-list-title>
+        <v-list-item-title>
             Todas
-        </v-list-title>
+        </v-list-item-title>
     </v-list-item>
 
     <v-list-item :active="$route.name === 'category' && Number($route.params.categoryId) === category.id"
