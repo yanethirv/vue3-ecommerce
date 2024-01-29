@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import ProductList from '@/components/ProductList.vue';
-import LeftMenu from '@/components/left/Menu.vue';
+import LeftMenu from '@/components/left/LeftMenu.vue';
 import { useProductsStore } from '@/stores/products';
 
 // Funcion Externa
