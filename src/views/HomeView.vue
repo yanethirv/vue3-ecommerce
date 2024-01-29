@@ -25,7 +25,12 @@ export default {
   beforeRouteUpdate(to) {
     //console.log('beforeRouteUpdate', to.params);
     updateCategoryFromRouteParams(to.params.categoryId);
-  }
+  },
+  mounted() {
+      //console.log('mounted')
+      const productsStore = useProductsStore();
+      productsStore.fetchProducts();
+  },
 }
 </script>
 

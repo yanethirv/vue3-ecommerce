@@ -1,15 +1,12 @@
 import { defineStore } from "pinia";
 import type { Product } from "@/model/types";
-import productsData from '@/data/products.json'
-
-//console.log(productsData)
 
 export const useProductsStore = defineStore('products', {
     state: () => ({
         // Variables de Estado
         categoryId: null as number|null,
         orderBy: 'price' as string,
-        _products: productsData as Product[]
+        _products: [] as Product[]
     }),
     getters: {
         products(state) {
@@ -50,6 +47,14 @@ export const useProductsStore = defineStore('products', {
     },
     actions: {
         // Se encarga de actualizar el estado
+        fetchProducts() {
+            fetch('/data/products.json')
+                .then(response => response.json())
+                .then((data) => {
+                    //console.log(data);
+                    this._products = data;
+                })
+        },
         selectCategory(categoryId: number) {
             this.categoryId = categoryId
         },

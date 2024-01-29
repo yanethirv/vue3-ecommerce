@@ -1,19 +1,20 @@
 import { defineStore } from "pinia";
 import type { Category } from "@/model/types";
-import categoriesData from '@/data/categories.json'
-
-//console.log(categoriesData)
 
 export const useCategoriesStore = defineStore('categories', {
     state: () => ({
         // Variables de Estado
-        categories: categoriesData as Category[]
+        categories: [] as Category[]
     }),
-    getters: {
-
-    },
     actions: {
-
+        fetchCategories() {
+            fetch('/data/categories.json')
+                .then(response => response.json())
+                .then((data) => {
+                    //console.log(data);
+                    this.categories = data;
+                })
+        },
     },
     
 })

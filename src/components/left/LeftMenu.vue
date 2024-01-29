@@ -2,12 +2,18 @@
 
 import OrderOptions from './OrderOptions.vue';
 import CategoryOptions from './CategoryOptions.vue';
+import { useCategoriesStore } from '@/stores/categories';
 
 export default {
     components: { 
         OrderOptions, 
         CategoryOptions 
-    }
+    },
+    mounted() {
+      //console.log('mounted')
+      const categoriesStore = useCategoriesStore();
+      categoriesStore.fetchCategories();
+  },
 }
 
 </script>
