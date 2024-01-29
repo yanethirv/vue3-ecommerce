@@ -27,9 +27,13 @@ export default {
     updateCategoryFromRouteParams(to.params.categoryId);
   },
   mounted() {
-      //console.log('mounted')
-      const productsStore = useProductsStore();
-      productsStore.fetchProducts();
+      //console.log('mounted');
+
+      setInterval(() => {
+        const productsStore = useProductsStore();
+        productsStore.fetchProducts();
+      }, 4000)
+      
   },
 }
 </script>

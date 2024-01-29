@@ -11,9 +11,11 @@ export default {
     },
     mounted() {
       //console.log('mounted')
-      const categoriesStore = useCategoriesStore();
-      categoriesStore.fetchCategories();
-  },
+        setInterval(() => {
+            const categoriesStore = useCategoriesStore();
+            categoriesStore.fetchCategories();
+        }, 2000)
+    },
 }
 
 </script>
