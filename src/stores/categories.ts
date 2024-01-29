@@ -4,7 +4,8 @@ import type { Category } from "@/model/types";
 export const useCategoriesStore = defineStore('categories', {
     state: () => ({
         // Variables de Estado
-        categories: [] as Category[]
+        categories: [] as Category[],
+        loading: true
     }),
     actions: {
         fetchCategories() {
@@ -13,6 +14,7 @@ export const useCategoriesStore = defineStore('categories', {
                 .then((data) => {
                     //console.log(data);
                     this.categories = data;
+                    this.loading = false;
                 })
         },
     },

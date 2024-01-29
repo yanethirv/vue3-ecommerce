@@ -6,7 +6,8 @@ export const useProductsStore = defineStore('products', {
         // Variables de Estado
         categoryId: null as number|null,
         orderBy: 'price' as string,
-        _products: [] as Product[]
+        _products: [] as Product[],
+        loading: true
     }),
     getters: {
         products(state) {
@@ -53,6 +54,7 @@ export const useProductsStore = defineStore('products', {
                 .then((data) => {
                     //console.log(data);
                     this._products = data;
+                    this.loading = false;
                 })
         },
         selectCategory(categoryId: number) {
