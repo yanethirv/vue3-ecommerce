@@ -43,13 +43,16 @@ export default {
 <template>
   <main>
     <v-row>
-      <v-col cols="2">
+      <!-- Menu lateral -->
+      <v-col cols="12" sm="3" lg="2">
         <LeftMenu />
       </v-col>
       
-      <v-col cols="10">
+      <!-- Contenido principal -->
+      <v-col cols="12" sm="9" lg="10">
         <ProductList />
       </v-col>
+
     </v-row>
   </main>
 </template>

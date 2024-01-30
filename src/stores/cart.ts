@@ -9,7 +9,7 @@ export const useCartStore = defineStore('cart', {
             productId: 100,
             quantity: 2
         }]*/
-        details: useLocalStorage('cartDetails', []) as CartDetail[]
+        details: useLocalStorage<CartDetail[]>('cartDetails', [])
     }),
     getters: {
         cartItemsCount: (state) => {
@@ -31,6 +31,27 @@ export const useCartStore = defineStore('cart', {
 
             return total;
         },
+        whatsAppMessage(state) {
+            let message = 'Hola, quiero realizar la siguiente compra:\n\n';
+
+            message += '- - - - - - - - - -\n'
+
+            state.details.forEach(d => {
+                
+                message += `Producto: ${d.product.name}\n`;
+                message += `Cantidad: ${d.quantity}\n`;
+                message += `SubTotal: ${d.quantity * d.product.price}\n USD`;
+                message += '- - - - - - - - - -\n'
+            });
+
+            message += `Total a pagar: ${this.totalAmount} USD`;
+            message += `Muchas gracias! :)\n`;
+
+            return encodeURI(message)
+        },
+        whatsAppLink() {
+            return 'https://wa.me/584144939412?text=' + this.whatsAppMessage;
+        }
     },
     actions: {
         addProduct(product: Product) { // Enviamos el objeto Product completo

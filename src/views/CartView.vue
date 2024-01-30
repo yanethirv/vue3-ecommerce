@@ -12,10 +12,10 @@ export default {
 
 <template>
   <v-row>
-    <v-col cols="8">
+    <v-col cols="12">
       <ShoppingCart />
     </v-col>
-    <v-col cols="4">
+    <v-col cols="12">
       <SummaryCart />
     </v-col>
   </v-row>
