@@ -34,17 +34,17 @@ export const useCartStore = defineStore('cart', {
         whatsAppMessage(state) {
             let message = 'Hola, quiero realizar la siguiente compra:\n\n';
 
-            message += '- - - - - - - - - -\n'
+            message += '- - - - - - - - - - - - - - -\n'
 
             state.details.forEach(d => {
                 
                 message += `Producto: ${d.product.name}\n`;
                 message += `Cantidad: ${d.quantity}\n`;
-                message += `SubTotal: ${d.quantity * d.product.price}\n USD`;
-                message += '- - - - - - - - - -\n'
+                message += `SubTotal: ${d.quantity * d.product.price} USD\n`;
+                message += '- - - - - - - - - - - - - - -\n'
             });
 
-            message += `Total a pagar: ${this.totalAmount} USD`;
+            message += `Total a pagar: ${this.totalAmount} USD\n\n`;
             message += `Muchas gracias! :)\n`;
 
             return encodeURI(message)
